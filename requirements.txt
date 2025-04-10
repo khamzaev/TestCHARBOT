@@ -1,9 +1,17 @@
-aiogram==3.0.0b7
-aiohttp==3.8.1
+# Основные библиотеки
+aiogram==2.25.2                 # Для работы с Telegram Bot API
+aiohttp==3.8.6                  # Для вебхуков и асинхронных запросов
+SQLAlchemy==1.4.48              # Для работы с базой данных
+pydantic==1.10.2                # Для валидации и работы с моделями данных
+python-dotenv==1.0.0            # Для работы с .env файлами
+
+# Интеграция с Google API
 google-api-python-client==2.87.0
 google-auth==2.20.0
 google-auth-oauthlib==1.0.0
-pydantic==1.10.2
-injectable==3.5.0
-SQLAlchemy==1.4.48
-python-dotenv==1.0.0
+
+# Внедрение зависимостей
+injectable==4.0.1
+
+# Логирование (опционально)
+cached-property==1.5.2          # Зависимость для кеширования
