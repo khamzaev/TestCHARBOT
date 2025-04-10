@@ -18,7 +18,7 @@ class DataService:
             google_sheets_client: Autowired(GoogleSheetsClient)
     ):
         self.db_session = db_session
-        self.api_client = APIClient()
+        self.api_client = api_client
         self.google_sheets_client = google_sheets_client
 
 
