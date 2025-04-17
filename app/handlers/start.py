@@ -12,6 +12,13 @@ router = Router()
 
 @router.message(Command("start"))
 async def start_command(message: types.Message):
+    """
+    Обработчик команды /start.
+
+    Отправляет приветственное сообщение с интерактивной кнопкой для получения данных.
+
+    :param message: Сообщение от пользователя.
+    """
     logger.info(f"User {message.from_user.id} initiated /start command")
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
@@ -20,6 +27,7 @@ async def start_command(message: types.Message):
     )
     await message.answer("Welcome! Use the button below to fetch data.", reply_markup=keyboard)
 
+
 @router.callback_query(lambda c: c.data == "fetch_data")
 @autowired
 async def fetch_data_callback(
@@ -27,6 +35,16 @@ async def fetch_data_callback(
     bot: Bot,
     data_service: Autowired(DataService)
 ):
+    """
+    Обработчик нажатия на кнопку "Fetch Data".
+
+    Выполняет запрос к API, сохраняет данные в базу данных и Google Sheets, а также уведомляет пользователя
+    о результате выполнения.
+
+    :param callback: Callback-запрос от кнопки.
+    :param bot: Экземпляр бота.
+    :param data_service: Сервис для работы с данными.
+    """
     try:
         logger.info(f"User {callback.from_user.id} requested data fetch")
         data = await data_service.fetch_and_process_data("posts")

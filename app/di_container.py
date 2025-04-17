@@ -1,5 +1,12 @@
-from injectable import  Injector
+from injectable import load_injection_container
 
-# Настройка контейнера
+
+# Настройка контейнера зависимостей
 def configure_di():
-    Injector.load_injection_container()
+    """
+    Инициализация контейнера зависимостей.
+
+    Загружает DI контейнер для автоматического внедрения зависимостей.
+    """
+    load_injection_container()
+

@@ -1,6 +1,7 @@
 import logging
 import sys
 
+
 # Настройка логгера
 def setup_logger():
     logger = logging.getLogger("telegram_bot")

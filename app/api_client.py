@@ -1,16 +1,20 @@
 import aiohttp
+from injectable import injectable
+
 from app import logger
 from app.utils import transform_keys
-from injectable import injectable
 
 
 @injectable
 class APIClient:
+    """
+    Клиент для работы с API.
+    """
     BASE_URL = "https://jsonplaceholder.typicode.com"
 
     async def fetch_data(self, endpoint: str):
         """
-        Выполняет запрос к API и возвращает данные в формате snake_case.
+        Выполняет запрос к API и возвращает данные с преобразованными ключами.
 
         :param endpoint: Конечная точка API (например, 'users', 'posts').
         :return: Данные с преобразованными ключами.

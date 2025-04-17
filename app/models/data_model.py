@@ -2,7 +2,11 @@ from sqlalchemy import Column, Integer, String
 from pydantic import BaseModel
 from app.db import Base
 
+
 class DataModel(Base):
+    """
+    Модель для представления данных в базе данных.
+    """
     __tablename__ = "data"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -12,6 +16,9 @@ class DataModel(Base):
 
 
 class APIData(BaseModel):
+    """
+    Pydantic-модель для валидации данных, полученных из API.
+    """
     id: int
     user_id: int
     title: str
