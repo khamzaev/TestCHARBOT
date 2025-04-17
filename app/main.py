@@ -3,6 +3,7 @@ from aiohttp import web
 from app.bot.handlers import register_handlers
 from app.database.connection import init_db
 
+
 API_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"  # Укажите ваш токен бота
 
 bot = Bot(token=API_TOKEN)

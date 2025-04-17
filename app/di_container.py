@@ -1,4 +1,4 @@
-from injectable import injectable, Injector
+from injectable import  Injector
 
 # Настройка контейнера
 def configure_di():
