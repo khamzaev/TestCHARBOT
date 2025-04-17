@@ -2,11 +2,11 @@ from typing import List
 from injectable import injectable, autowired, Autowired
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app import logger
-from app.api_client import APIClient
+from app.infrastructure import logger
+from app.services.api_client import APIClient
 from app.models.data_model import APIData
 from app.utils import transform_keys
-from app.google_sheets_client import GoogleSheetsClient
+from app.services.google_sheets_client import GoogleSheetsClient
 
 
 @injectable

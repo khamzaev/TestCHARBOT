@@ -3,9 +3,9 @@ from aiogram.webhook.aiohttp_server import SimpleRequestHandler
 from aiohttp import web
 from config import TELEGRAM_API_TOKEN
 
-from app.db import init_db
+from app.infrastructure.db import init_db
 from app.handlers import start
-from app.di_container import configure_di
+from app.infrastructure.di_container import configure_di
 
 
 # Инициализация бота и диспетчера

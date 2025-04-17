@@ -2,7 +2,7 @@ from aiogram import Router, types, Bot
 from aiogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import Command
 
-from app import logger
+from app.infrastructure import logger
 from app.services.data_service import DataService
 from injectable import autowired, Autowired
 

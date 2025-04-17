@@ -1,7 +1,7 @@
 import aiohttp
 from injectable import injectable
 
-from app import logger
+from app.infrastructure import logger
 from app.utils import transform_keys
 
 
