@@ -8,14 +8,14 @@
 
 - **Интеграция с Telegram**:
   - Обработка команды `/start` с приветственным сообщением и инлайн-кнопками.
-  - Получение данных из внешнего API по запросу пользователя.
+  - Получение данных из внешнего API (например, JSONPlaceholder) по запросу пользователя.
 
 - **Обработка данных**:
   - Преобразование данных из формата `camelCase` в `snake_case`.
-  - Валидация и обработка данных с использованием Pydantic-моделей.
+  - Валидация и обработка данных с использованием моделей Pydantic.
 
 - **Работа с базой данных**:
-  - Сохранение обработанных данных в базе данных.
+  - Сохранение обработанных данных в базе данных PostgreSQL.
 
 - **Интеграция с Google Sheets**:
   - Добавление обработанных данных в указанный лист Google Sheets.
@@ -40,8 +40,8 @@
 
 ### 1. Клонирование репозитория
 ```bash
-git clone https://github.com/your-repo-name/telegram-bot-google-sheets.git
-cd telegram-bot-google-sheets
+git clone https://github.com/khamzaev/TestCHARBOT.git
+cd TestCHARBOT
 ```
 
 ### 2. Создание виртуального окружения и установка зависимостей
@@ -58,6 +58,7 @@ TELEGRAM_API_TOKEN=ваш-токен-бота
 GOOGLE_CREDENTIALS_FILE=путь-к-файлу-учетных-данных.json
 GOOGLE_SPREADSHEET_ID=идентификатор-google-таблицы
 WEBHOOK_URL=https://ваш-домен.com/webhook
+POSTGRES_URL=postgresql+asyncpg://username:password@localhost/db_name
 ```
 
 ### 4. Инициализация базы данных
@@ -73,7 +74,7 @@ python -m app.db
 ### 1. Запуск сервера вебхуков
 Запустите бота с помощью:
 ```bash
-python main.py
+python app/bot.py
 ```
 
 ### 2. Тестирование бота
@@ -97,13 +98,11 @@ python main.py
 │   │   ├── __init__.py                # Инициализация пакета
 │   │   ├── data_service.py            # Логика обработки и сохранения данных
 │   │   ├── api_client.py              # Клиент для работы с внешним API
-│   │   ├── bot.py                     # Telegram-бот
-│   │   ├── db.py                      # Работа с базой данных
-│   │   ├── di_container.py            # Настройка Dependency Injection
 │   │   ├── google_sheets_client.py    # Интеграция с Google Sheets
-│   │   ├── logger.py                  # Логирование
-│   │   ├── utils.py                   # Утилиты 
-│   ├── main.py                        # Точка входа приложения
+│   ├── bot.py                         # Telegram-бот
+│   ├── db.py                          # Работа с базой данных
+│   ├── di_container.py                # Настройка Dependency Injection
+│   ├── utils.py                       # Утилиты
 ├── nginx/
 │   ├── nginx.conf                     # Конфигурация Nginx
 ├── config.py                          # Конфигурация проекта
@@ -141,7 +140,6 @@ python main.py
 Содержит вспомогательные функции, такие как `camel_to_snake` и `transform_keys` для изменения формата ключей.
 
 ---
-
 
 ## Автор
 
